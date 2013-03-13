@@ -20,7 +20,8 @@ public class Scene1 extends Scene
 	int NUM_VEHICLES = 30;
 	ArrayList bursts;
 
-	public Scene1 (float $x, float $y, int $width, int $height, FFT $fft) {
+	public Scene1 (float $x, float $y, int $width, int $height, FFT $fft) 
+	{
 		super($x, $y, $width, $height, $fft);
 	}
 

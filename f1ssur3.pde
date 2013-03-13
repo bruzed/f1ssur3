@@ -41,7 +41,7 @@ void setup(){
 	fft = new FFT(audioInput.bufferSize(), audioInput.sampleRate());
 	fft.logAverages(22, 3);
 
-  	scene1 = new Scene1(SCENE_LOCATION_X, SCENE_LOCATION_Y, SCENE_SIZE_W, SCENE_SIZE_H, fft, canvas);
+  	scene1 = new Scene1(SCENE_LOCATION_X, SCENE_LOCATION_Y, SCENE_SIZE_W, SCENE_SIZE_H, fft);
   	scene1.setup();
   	
 }
@@ -54,16 +54,10 @@ void draw(){
 		gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE);
 	pgl.endPGL();
 	
-	canvas.beginDraw();
-	canvas.background(0, 0, 0);
-	// canvas.lights();
-	// canvas.translate(width/2, height/2, 0);
-	// canvas.rotateX(frameCount * 0.01);
-	// canvas.rotateY(frameCount * 0.01);
-	// canvas.box(150);
+	background(0, 0, 0);
 	scene1.draw();
-	canvas.endDraw();
-	image(canvas, 0, 0);
+
+	canvas = pgl;
 	server.sendImage(canvas);
 
 }
