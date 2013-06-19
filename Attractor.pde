@@ -9,7 +9,7 @@ class Attractor
 	float maxforce;
 	float maxspeed;
 
-	color randomColor;
+	// color randomColor;
 
 	Attractor(float x, float y) 
 	{
@@ -20,7 +20,7 @@ class Attractor
 	    wandertheta = 0;
 	    maxspeed = 2;
 	    maxforce = 0.05;
-	    randomColor = color( int(random(0,255)), int(random(0,255)), int(random(0,255)), int(random(100,255)));
+	    // randomColor = color( int(random(0,255)), int(random(0,255)), int(random(0,255)), int(random(100,255)));
 	}
 
 	void run() 
@@ -83,8 +83,18 @@ class Attractor
 	    // vertex(r, r*2);
 	    // endShape();
 		imageMode(CENTER);
-		tint(255, 200);
-		image(orb, 0, 0, r*2, r*2);
+		if (isShowImage){
+			tint(whiteColor);
+			image(orb, 0, 0, r*2, r*2);
+			tint(whiteColor);
+			image(orb, 0, 0, r, r);
+		}
+		if (isShowWireframe){
+			tint(whiteColor);
+			image(orbWireframe, 0, 0, r*2, r*2);	
+			tint(whiteColor);
+			image(orbWireframe, 0, 0, r, r);	
+		}
 	    popMatrix();
 	}
 

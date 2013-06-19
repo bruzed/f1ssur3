@@ -2,7 +2,7 @@ class Burst
 {
 	float m;
 	float radius = 1;
-	color burstColor = color(random(255), random(255), random(255));
+	color burstColor = whiteColor;
 	float increment = 50;
 	float alpha;
 	float xpos = width/2;
@@ -32,7 +32,12 @@ class Burst
 		// rect(0, 0, width, height);
 		imageMode(CENTER);
 		tint(burstColor, alpha);
-		image(orb, xpos, ypos, radius, radius);
+		image(softOrb, xpos, ypos, radius, radius);
+	}
+
+	void setColor(color $color)
+	{
+		burstColor = $color;
 	}
 	
 }
